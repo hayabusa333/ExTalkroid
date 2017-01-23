@@ -29,4 +29,6 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 config :softalk,
-  dir_path: "D:/tool/softalk"
+  dir_path: "D:/tool/softalk",
+  speed: "100",
+  volume: "100"

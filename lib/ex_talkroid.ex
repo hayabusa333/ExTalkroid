@@ -3,7 +3,7 @@ defmodule ExTalkroid do
     init()
     hoge = "テスト"
     conf = Mix.Config.read!("config/config.exs")
-    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:100", "/V:100", "/W:#{hoge}"])
+    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{hoge}"])
   end
 
   def init do
@@ -12,7 +12,7 @@ defmodule ExTalkroid do
       {"", 0} ->
         :ok
       _ ->
-        :error
+        raise "Softalk path error"
     end
   end
 end
