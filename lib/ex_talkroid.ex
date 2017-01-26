@@ -6,6 +6,12 @@ defmodule ExTalkroid do
     System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{hoge}"])
   end
 
+  def talk(comment) do
+    init()
+    conf = Mix.Config.read!("config/config.exs")
+    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{comment}"])
+  end
+
   def init do
     conf = Mix.Config.read!("config/config.exs")
     case System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/X:1"]) do
