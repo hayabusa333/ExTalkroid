@@ -1,7 +1,6 @@
 defmodule ExTalkroid.Softalk do
   def init do
-    conf = Mix.Config.read!("config/config.exs")
-    case System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/X:1"]) do
+    case System.cmd(exe_path(), ["/X:1"]) do
       {"", 0} ->
         :ok
       _ ->
@@ -10,7 +9,22 @@ defmodule ExTalkroid.Softalk do
   end
 
   def talk(comment) do
-    conf = Mix.Config.read!("config/config.exs")
-    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{comment}"])
+    System.cmd(exe_path(), option(comment))
+  end
+
+  def exe_path() do
+    "#{Application.get_env(:softalk, :dir_path)}/SofTalkw.exe"
+  end
+
+  def option(comment) do
+    [speed(), volume(), "/W:#{comment}"]
+  end
+
+  def speed() do
+    "/S:#{Application.get_env(:softalk, :speed)}"
+  end
+
+  def volume() do
+    "/V:#{Application.get_env(:softalk, :volume)}"
   end
 end
