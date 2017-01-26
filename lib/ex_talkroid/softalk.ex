@@ -8,4 +8,9 @@ defmodule ExTalkroid.Softalk do
         raise "Softalk path error"
     end
   end
+
+  def talk(comment) do
+    conf = Mix.Config.read!("config/config.exs")
+    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{comment}"])
+  end
 end

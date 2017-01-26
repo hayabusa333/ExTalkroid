@@ -9,8 +9,7 @@ defmodule ExTalkroid do
 
   def talk(comment) do
     init()
-    conf = Mix.Config.read!("config/config.exs")
-    System.cmd("#{conf[:softalk][:dir_path]}/SofTalkw.exe", ["/S:#{conf[:softalk][:speed]}", "/V:#{conf[:softalk][:volume]}", "/W:#{comment}"])
+    ExTalkroid.Softalk.talk(comment)
   end
 
   def init do
