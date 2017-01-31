@@ -8,8 +8,19 @@ defmodule ExTalkroid.Cli do
 
   defp parse_args(args) do
     {options, _, _} = OptionParser.parse(args,
-      switches: [comment: :string]
+      switches: [comment: :string, help: :boolean],
+      aliases: [h: :help]
     )
+
+    if(options[:help]) do
+      IO.puts """
+       --help         Help information.
+       --comment      Value to talk softalk
+      """
+      System.halt(0)
+    end
+
+
     options
   end
 end
