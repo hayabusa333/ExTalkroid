@@ -1,14 +1,22 @@
 defmodule ExTalkroid.Cli do
   def main(args) do
     options = parse_args(args)
-    ExTalkroid.Softalk.init()
     comment = options[:comment]
-    ExTalkroid.Softalk.talk(comment)
+    case options[:talkroid] do
+      "voiceroid" ->
+        ExTalkroid.Voiceroid.talk(comment)
+      "softalk" ->
+        ExTalkroid.Softalk.init()
+        ExTalkroid.Softalk.talk(comment)
+      _ ->
+        ExTalkroid.Softalk.init()
+        ExTalkroid.Softalk.talk(comment)
+    end
   end
 
   defp parse_args(args) do
     {options, _, _} = OptionParser.parse(args,
-      switches: [comment: :string, help: :boolean],
+      switches: [comment: :string, help: :boolean, talkroid: :string],
       aliases: [h: :help]
     )
 
@@ -16,6 +24,7 @@ defmodule ExTalkroid.Cli do
       IO.puts """
        --help         Help information.
        --comment      Value to talk softalk
+       --talkroid     select voiceroid or softalk (default softalk)
       """
       System.halt(0)
     end
