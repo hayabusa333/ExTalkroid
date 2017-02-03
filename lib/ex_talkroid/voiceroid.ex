@@ -1,6 +1,6 @@
 defmodule ExTalkroid.Voiceroid do
   def talk(comment) do
-    path = Path.absname("bin/VoiceroidController.exe")
+    path = Path.absname("bin/VoiceroidCmd.exe")
     System.cmd(path, option(comment))
   end
 
