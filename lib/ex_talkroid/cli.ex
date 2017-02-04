@@ -17,14 +17,14 @@ defmodule ExTalkroid.Cli do
   defp parse_args(args) do
     {options, _, _} = OptionParser.parse(args,
       switches: [comment: :string, help: :boolean, talkroid: :string],
-      aliases: [h: :help]
+      aliases: [c: :comment ,h: :help, t: :talkroid]
     )
 
     if(options[:help]) do
       IO.puts """
-       --help         Help information.
-       --comment      Value to talk softalk
-       --talkroid     select voiceroid or softalk (default softalk)
+       --help : -h          Help information.
+       --comment : -c       Value to talk softalk
+       --talkroid : -t      select voiceroid or softalk (default softalk)
       """
       System.halt(0)
     end
