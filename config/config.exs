@@ -32,3 +32,6 @@ config :softalk,
   dir_path: "D:/tool/softalk",
   speed: "100",
   volume: "100"
+
+config :voiceroid,
+  dir_path: "D:/program/elixir/ex_talkroid/bin"
