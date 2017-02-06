@@ -25,6 +25,7 @@ defmodule ExTalkroid.Cli do
        --help : -h          Help information.
        --comment : -c       Value to talk softalk
        --talkroid : -t      select voiceroid or softalk (default softalk)
+       --speed : -s         Value to softalk speed
       """
       System.halt(0)
     end
