@@ -8,6 +8,10 @@ That talk Voiceroid or Softalk from Elixir
 
 ## Usage
 
+### escript
+
+### Library
+
 ## Install
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
