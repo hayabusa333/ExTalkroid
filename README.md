@@ -26,8 +26,8 @@ end
 ```elixir
 config :softalk,
   dir_path: "D:/tool/softalk", # softalk full path
-  speed: "100", # softalk speed
-  volume: "100" # softalk volume
+  speed: "100", # softalk speed value
+  volume: "100" # softalk volume value
 
 config :voiceroid,
   dir_path: "D:/program/elixir/ex_talkroid/bin" # voiceroid full path
