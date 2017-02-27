@@ -10,6 +10,11 @@ That talk Voiceroid or Softalk from Elixir
 
 ### escript
 
+ --help : -h          Help information.
+ --comment : -c       Value to talk softalk
+ --talkroid : -t      select voiceroid or softalk (default softalk)
+
+
 ### Library
 
 ## Install
