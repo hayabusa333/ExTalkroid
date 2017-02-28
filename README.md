@@ -17,6 +17,10 @@ That talk Voiceroid or Softalk from Elixir
 
 ### Library
 
+```elixir
+ExTalkroid.talk(comment, "voiceroid") # voiceroid talk
+```
+
 ## Install
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
