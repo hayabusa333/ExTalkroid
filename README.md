@@ -18,7 +18,9 @@ That talk Voiceroid or Softalk from Elixir
 ### Library
 
 ```elixir
-ExTalkroid.talk(comment, "voiceroid") # voiceroid talk
+ExTalkroid.talk("テスト", "voiceroid") # voiceroid talk
+
+ExTalkroid.talk("テスト", "softalk") # softalk talk
 ```
 
 ## Install
